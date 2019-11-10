@@ -1,5 +1,8 @@
 {
   "name": "gvsmartCommunity",
-  "integrations": {},
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
   "type": "angular"
 }

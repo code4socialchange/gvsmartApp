@@ -1,0 +1,7 @@
+{
+  "appId": "io.gvsmart.comm",
+  "appName": "gvsmartCommunity",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www"
+}
