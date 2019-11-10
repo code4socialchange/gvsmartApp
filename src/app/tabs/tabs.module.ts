@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { TabsPageRoutingModule } from './tabs.router.module';
 
 import { TabsPage } from './tabs.page';
+import { SharedService } from '../services/shared/shared.service';
+import { ChatService } from '../services/chat/chat.service';
 
 @NgModule({
   imports: [
@@ -14,6 +16,9 @@ import { TabsPage } from './tabs.page';
     FormsModule,
     TabsPageRoutingModule
   ],
-  declarations: [TabsPage]
+  declarations: [TabsPage],
+  providers: [
+    SharedService, ChatService
+  ]
 })
 export class TabsPageModule {}

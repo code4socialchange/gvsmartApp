@@ -1,0 +1,85 @@
+app-home:host {
+  
+  .welcome-card img {
+    max-height: 35vh;
+    overflow: hidden;
+  }
+
+  .home-topics {
+    display: flex;
+    overflow-x: auto;
+    margin-right: 10px;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    ion-card {
+      box-shadow: none;
+      min-width: 80px;
+      img {
+        border-radius: 50%;
+        border: 2px solid rgba(221, 221, 221, 0.25);
+      }
+      ion-card-header {
+        padding: 10px 5px;
+        ion-card-title {
+          font-size: 1rem;
+          font-weight: normal;
+        }
+      }
+    }
+  }
+
+  .home-cards {
+    ion-card {
+      margin: 5px;
+      border-radius: 12px;
+      position: relative;
+      ion-card-subtitle {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: rgba(0, 0, 0, 0.2);
+        padding: 5px 10px;
+        border-radius: 15px;
+        color: #fff;
+        font-size: 0.8rem;
+      }
+      ion-card-header {
+        background-color: transparent;
+        padding: 0;
+        margin: 0;
+        position: relative;
+        top: -15px;
+        ion-card-title {
+          position: absolute;
+          width: 100%;
+          text-align: center;
+          bottom: 5px;
+          font-size: 18px;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  .trending-articles {
+    ion-card {
+      position: relative;
+      border-radius: 12px;
+      ion-card-header {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: left;
+        ion-card-subtitle {
+          font-size: 0.8rem;
+        }
+        ion-card-title {
+          color: #fff;
+        }
+      }
+    }
+  }
+
+}
+

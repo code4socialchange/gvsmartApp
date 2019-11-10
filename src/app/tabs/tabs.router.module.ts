@@ -4,49 +4,49 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: 'home',
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'tab-home',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+              import('../tab-home/tab1.module').then(m => m.HomePageModule)
           }
         ]
       },
       {
-        path: 'tab2',
+        path: 'tab-chat',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+              import('../tab-chat/tab2.module').then(m => m.Tab2PageModule)
           }
         ]
       },
       {
-        path: 'tab3',
+        path: 'tab-news',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+              import('../tab-news/tab3.module').then(m => m.Tab3PageModule)
           }
         ]
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/home/tab-home',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/home/tab-home',
     pathMatch: 'full'
   }
 ];

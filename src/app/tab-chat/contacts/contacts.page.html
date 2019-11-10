@@ -1,0 +1,32 @@
+<ion-header transparent>
+  <ion-toolbar>
+    <ion-title>Contacts</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-searchbar 
+    animated clearIcon 
+    showCancelButton="focus" 
+    debounce="500" 
+    (ionChange)="filterContacts($event.detail.value)">
+  </ion-searchbar>
+
+  <ion-list>
+    <ion-item *ngFor="let user of filteredUsersList; trackBy:user?.id" lines="none" (click)="openSingle(user)" button>
+      <ion-avatar slot="start">
+        <img src="https://i.pravatar.cc/50">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ user.firstName }} {{ user.lastName }}</h2>
+      </ion-label>
+      <ion-ripple-effect type="bounded"></ion-ripple-effect>
+    </ion-item>
+  </ion-list>
+
+  <ng-container *ngIf="filteredUsersList.length === 0">
+    <div text-center>Contact not found.</div>
+  </ng-container>
+
+</ion-content>

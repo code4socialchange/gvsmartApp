@@ -10,7 +10,21 @@ import { Tab2Page } from './tab2.page';
     IonicModule,
     CommonModule,
     FormsModule,
-    RouterModule.forChild([{ path: '', component: Tab2Page }])
+    RouterModule.forChild([
+      { 
+        path: '', 
+        children: [
+          {
+            path: '',
+            component: Tab2Page
+          },
+          // { 
+          //   path:  'single',
+          //   loadChildren: () => import('./single-chat/single-chat.module').then(m => m.SingleChatPageModule)
+          // }
+        ]
+      }
+    ])
   ],
   declarations: [Tab2Page]
 })

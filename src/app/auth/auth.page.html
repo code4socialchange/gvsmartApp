@@ -1,0 +1,52 @@
+<ion-content>
+
+  <div class="login">
+    
+    <div class="login-form">
+
+      <div class="logo ion-margin-bottom">
+        <img src="./../../assets/GV-logo.png" width="150">
+      </div>
+      
+      <div *ngIf="formType === 'login'; then login else register"></div>
+      
+    </div>
+
+  </div>
+
+
+</ion-content>
+
+<ng-template #login>
+  <form [formGroup]="loginForm" (submit)="submitLoginForm()">
+    <ion-card class="ion-no-margin ion-margin-bottom">
+      <ion-item>
+        <ion-input placeholder="Phone Number" type="number" formControlName="username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="Password" type="password" formControlName="password"></ion-input>
+      </ion-item>
+    </ion-card>
+    <ion-button color="primary" expand="block" size="default" type="submit" [disabled]="loginForm.invalid">Login</ion-button>
+    <ion-button color="primary" expand="block" size="default" type="button" fill="clear" class="ion-margin-top" (click)="formType = 'register'">Register</ion-button>
+  </form>
+</ng-template>
+
+<ng-template #register>
+  <form [formGroup]="registerForm" (submit)="submitRegisterForm()">
+    <ion-card class="ion-no-margin ion-margin-bottom">
+      <ion-item>
+        <ion-input placeholder="First Name" formControlName="firstName"></ion-input>
+        <ion-input placeholder="Last Name" formControlName="lastName"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="Phone Number" type="number" formControlName="phone"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="Password" type="password" formControlName="password"></ion-input>
+      </ion-item>
+    </ion-card>
+    <ion-button color="primary" expand="block" size="default" type="submit" [disabled]="registerForm.invalid">Register</ion-button>
+    <ion-button color="primary" expand="block" size="default" type="button" fill="clear" (click)="formType = 'login'">Login</ion-button>
+  </form>
+</ng-template>
