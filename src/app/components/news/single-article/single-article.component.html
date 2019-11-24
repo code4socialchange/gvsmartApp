@@ -1,0 +1,24 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>{{ article.name }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" fullscreen>
+
+  <ion-text>
+    <h6>{{ article.category }}</h6>
+  </ion-text>
+  
+  <ion-text>
+    <h3>{{ article.name }}</h3>
+  </ion-text>
+
+  <ion-text *ngIf="article.content">
+    <div [innerHTML]="article.content" class="ion-margin-top article-body"></div>
+  </ion-text>
+
+</ion-content>
