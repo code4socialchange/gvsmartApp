@@ -9,16 +9,31 @@
 
 <ion-content class="ion-padding" fullscreen>
 
-  <ion-text>
-    <h6>{{ article.category }}</h6>
-  </ion-text>
+  <ng-container *ngIf="article.category !== 'Video'">
+    <ion-text>
+      <h6>{{ article.category }}</h6>
+    </ion-text>
+    
+    <ion-text>
+      <h3>{{ article.name }}</h3>
+    </ion-text>
   
-  <ion-text>
-    <h3>{{ article.name }}</h3>
-  </ion-text>
-
-  <ion-text *ngIf="article.content">
-    <div [innerHTML]="article.content" class="ion-margin-top article-body"></div>
-  </ion-text>
+    <ion-text *ngIf="article.content">
+      <div [innerHTML]="article.content" class="ion-margin-top article-body"></div>
+    </ion-text>
+  </ng-container>
+  
+  <ng-container *ngIf="article.category === 'Video'" && isVideo>
+    <div class="video-wrapper">
+      <video 
+        fullscreen="fullscreen" 
+        autoplay="true" 
+        controls 
+        [src]="videoSrc"
+        style="max-width: 100%;">
+      </video>
+    </div>
+  </ng-container>
+  
 
 </ion-content>

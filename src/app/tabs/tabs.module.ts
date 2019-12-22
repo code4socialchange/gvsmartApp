@@ -16,9 +16,6 @@ import { ChatService } from '../services/chat/chat.service';
     FormsModule,
     TabsPageRoutingModule
   ],
-  declarations: [TabsPage],
-  providers: [
-    SharedService, ChatService
-  ]
+  declarations: [TabsPage]
 })
 export class TabsPageModule {}

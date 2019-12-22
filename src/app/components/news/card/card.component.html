@@ -1,5 +1,6 @@
 <ion-card class="ion-activatable" (click)="loadArticle()">
-    <img src="https://picsum.photos/400/180">
+    <img *ngIf="article.category !== 'Video'" src="./../../../../assets/farmer.jpg" class="box-img">
+    <img *ngIf="article.category == 'Video'" src="./../../../../assets/farmer-blurred.png" class="box-img">
     <ion-card-header>
         <ion-card-subtitle>{{ article.category }}</ion-card-subtitle>
         <ion-card-title>{{ article.name }}</ion-card-title>

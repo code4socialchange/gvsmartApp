@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonSlides } from '@ionic/angular'
+import { IonSlides, NavController } from '@ionic/angular'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -15,11 +16,19 @@ export class HomePage {
     spaceBetween: 5
   }
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
+  }
+
+  loadArticles(category = null) {
+    this.router.navigate(['home', 'tab-news'], {
+      state: {
+        category: category
+      }
+    });
   }
 
 }

@@ -1,0 +1,15 @@
+<div class="interaction-wrapper" [ngClass]="{ 'ion-text-right': chatType === 'sent' }">
+  <div class="interaction ion-activatable" [ngClass]="{ 'sent': chatType === 'sent' }">
+    
+    <ng-container *ngIf="interaction.messageType === 'text'">
+      {{ interaction.message }}
+    </ng-container>
+
+    <ng-container *ngIf="interaction.messageType === 'image'">
+      <img src="safeImage({{ interaction.message }})" alt="" srcset="">
+    </ng-container>
+    
+    <span class="time">{{ interaction.createdAt | date:'shortTime' }}</span>
+    <ion-ripple-effect></ion-ripple-effect>
+  </div>
+</div>

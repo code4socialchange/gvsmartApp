@@ -1,7 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SecurityContext } from '@angular/core';
 import { Router } from '@angular/router';
 import { SharedService } from 'src/app/services/shared/shared.service';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { NavParams, ModalController } from '@ionic/angular';
 
 @Component({
@@ -12,22 +12,22 @@ import { NavParams, ModalController } from '@ionic/angular';
 export class SingleArticleComponent implements OnInit {
 
   @Input() article: any;
+  isVideo: boolean = false;
+  videoSrc: string;
 
   constructor(private navParams: NavParams, private shared: SharedService, private sanitizer: DomSanitizer, private modalCtrl: ModalController) { 
     this.article = this.navParams.get('article');
+    if (this.article.category === 'Video') {
+      this.videoSrc = 'http://192.168.0.107:3000/videos/' + this.article.content;
+      this.videoSrc = this.sanitizer.bypassSecurityTrustUrl(this.videoSrc) as string;
+      this.isVideo = true;
+    } else {
+      this.article.content = this.sanitizer.bypassSecurityTrustHtml(this.article.content)
+    }
     console.log(this.article);
   }
 
-  ngOnInit() {
-    this.getArticleDetail();
-  }
-
-  getArticleDetail() {
-    this.shared.getArticle(this.article.id).subscribe(response => {
-      this.article = { ...this.article, ...response.blog };
-      this.article.content = this.sanitizer.bypassSecurityTrustHtml(this.article.content);
-    })
-  }
+  ngOnInit() { }
 
   dismissModal() {
     this.modalCtrl.dismiss();

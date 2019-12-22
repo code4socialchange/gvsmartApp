@@ -2,11 +2,18 @@
   <ion-toolbar>
     <ion-title><img src="./../../assets/GV-logo.png" width="100"></ion-title>
     <ion-buttons slot="primary">
-      <ion-button>
-        <ion-icon src="./../../assets/icon/chat.svg"></ion-icon>
+      <ion-button color="primary" (click)="syncFromServerTransitUser()">
+        <ion-icon name="cloud-download"></ion-icon>
       </ion-button>
-      <ion-button>
-        <ion-icon src="./../../assets/icon/notifications.svg"></ion-icon>
+      <!-- *ngIf="isEntrepreneurUser" -->
+      <ion-button color="primary" (click)="syncTransitUser()">
+        <ion-icon name="cloud-download"></ion-icon>
+      </ion-button>
+      <ion-button color="success" (click)="manualSyncToServer()">
+        <ion-icon name="refresh"></ion-icon>
+      </ion-button>
+      <ion-button color="danger" (click)="logoutConfirmation()">
+        <ion-icon name="power"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>

@@ -17,14 +17,18 @@ export class InterceptorService implements HttpInterceptor {
     const token = localStorage.getItem('_cap_token');
     
     if (token) {
-      request = request.clone({
-        url: `http://localhost:3000/${request.urlWithParams}`,
-        headers: request.headers.set('x-access-token', token)
-      });
+      if (!request.url.includes('http')) {
+        request = request.clone({
+          url: `http://192.168.0.107:3000/${request.urlWithParams}`,
+          headers: request.headers.set('x-access-token', token)
+        });
+      }
     } else {
-      request = request.clone({
-        url: `http://localhost:3000/${request.urlWithParams}`,
-      });
+      if (!request.url.includes('http')) {
+        request = request.clone({
+          url: `http://192.168.0.107:3000/${request.urlWithParams}`,
+        });
+      }
     }
 
     return next.handle(request).pipe(

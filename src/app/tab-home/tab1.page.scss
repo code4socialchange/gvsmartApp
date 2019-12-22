@@ -5,6 +5,11 @@ app-home:host {
     overflow: hidden;
   }
 
+  .box-img {
+    height: 173px;
+    object-fit: cover;
+  }
+
   .home-topics {
     display: flex;
     overflow-x: auto;
@@ -18,6 +23,8 @@ app-home:host {
       img {
         border-radius: 50%;
         border: 2px solid rgba(221, 221, 221, 0.25);
+        height: 173px;
+        object-fit: cover;
       }
       ion-card-header {
         padding: 10px 5px;

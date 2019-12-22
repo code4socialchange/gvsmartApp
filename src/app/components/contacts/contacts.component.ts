@@ -1,24 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/services/interface.service';
 import { ChatService } from 'src/app/services/chat/chat.service';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-contacts',
-  templateUrl: './contacts.page.html',
-  styleUrls: ['./contacts.page.scss'],
+  templateUrl: './contacts.component.html',
+  styleUrls: ['./contacts.component.scss'],
 })
-export class ContactsPage implements OnInit {
+export class ContactsComponent implements OnInit {
 
   usersList: Array<User> = [];
   filteredUsersList: Array<User> = [];
 
-  constructor(private chatService: ChatService) { }
+  constructor(private chatService: ChatService, private modalCtrl: ModalController) { }
 
   ngOnInit() {
     this.chatService.getContactsFromStorage().then(users => {
       this.usersList = JSON.parse(users.value);
       this.filteredUsersList = JSON.parse(users.value);
     });
+  }
+
+  dismissModal() {
+    this.modalCtrl.dismiss();
   }
 
   filterContacts(filterText: string) {
@@ -30,7 +35,7 @@ export class ContactsPage implements OnInit {
   }
 
   openSingle(contact) {
-    console.log(contact);
+    this.modalCtrl.dismiss(contact);
   }
 
 }

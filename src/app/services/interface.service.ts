@@ -32,3 +32,34 @@ export interface getContactsResponse {
   success: boolean,
   users: Array<User>
 }
+
+export interface Blog {
+  category: string,
+  createdAt: string,
+  id: number,
+  name: string,
+  updatedAt: string,
+  content?: string
+}
+
+export interface BlogListResponse {
+  blogs: Array<Blog>,
+  success: boolean
+}
+
+export interface BlogResponse {
+  blog: Blog,
+  success: boolean
+}
+
+export interface Interaction {
+  message: string,
+  senderId: number,
+  receiverId: number,
+  messageType: 'text' | 'video' | 'image',
+  imagePath?: string,
+  received: boolean,
+  createdAt: Date
+  updatedAt: Date,
+  synced?: boolean
+}

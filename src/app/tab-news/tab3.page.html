@@ -1,3 +1,22 @@
 <ion-content>
-    <news-card *ngFor="let article of articles" [article]="article"></news-card>
+    
+    <ion-list lines="none" (ionChange)="filterCategory($event.detail.value)">
+        <ion-item>
+            <ion-select interface="popover" placeholder="Select Category" slot="end" [(ngModel)]="navParams">
+                <ion-select-option value="News">News</ion-select-option>
+                <ion-select-option value="General">General</ion-select-option>
+                <ion-select-option value="Announcement">Announcement</ion-select-option>
+                <ion-select-option value="Health">Health</ion-select-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+
+    <div *ngIf="articles.length > 0; else nonews">
+        <news-card *ngFor="let article of articles" [article]="article"></news-card>
+    </div>
+
+    <ng-template #nonews>
+        <p class="ion-padding ion-text-center">No articles available</p>
+    </ng-template>
+
 </ion-content>

@@ -1,0 +1,41 @@
+chat-interaction:host {
+    .interaction-wrapper {
+        .interaction {
+            background-color: wheat;
+            padding: 0.5rem 1rem;
+            margin: 0.1rem 1rem;
+            border-radius: 8px;
+            display: inline-block;
+            position: relative;
+            &::after {
+                // content: "";
+                position: absolute;
+                left: -5px;
+                top: 0;
+                width: 10px;
+                height: 10px;
+                background: #f5deb3;
+                border-radius: 0px 0px 0 10px;
+            }
+            &.sent {
+                &::after {
+                    // content: "";
+                    position: absolute;
+                    right: -5px;
+                    left: auto;
+                    top: 0;
+                    width: 10px;
+                    height: 10px;
+                    background: #f5deb3;
+                    border-radius: 0px 0px 10px 0;
+                }
+            }
+            span.time {
+                color: darkgrey;
+                font-size: 0.6rem;
+                padding-left: 0.5rem;
+            }
+        }
+    }
+
+}

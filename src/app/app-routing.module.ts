@@ -9,14 +9,6 @@ const routes: Routes = [
   { 
     path: 'login', 
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthPageModule) 
-  },
-  { 
-    path: 'single-chat', 
-    loadChildren: () => import('./tab-chat/single-chat/single-chat.module').then(m => m.SingleChatPageModule) 
-  },
-  { 
-    path: 'contacts', 
-    loadChildren: () => import('./tab-chat/contacts/contacts.module').then(m =>m.ContactsPageModule) 
   }
 ];
 @NgModule({

@@ -1,11 +1,37 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>single-chat</ion-title>
+    <ion-title>{{ contact.firstName }} {{ contact.lastName }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
-  
-
+  <div class="ion-margin-top"></div>
+  <!-- <chat-interaction *ngFor="let interaction of [1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5]" [chatType]="sent"></chat-interaction> -->
+  <chat-interaction *ngFor="let interaction of interactions; trackBy: trackByFn" [interaction]="interaction" [chatType]="getInteractionType(interaction)"></chat-interaction>
 </ion-content>
+
+<ion-footer>
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed" style="top: 0; right: 50px;">
+    <ion-fab-button size="small" style="box-shadow: none;" disabled> 
+      <ion-icon name="attach"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button color="primary" (click)="sendFromGallery()">
+        <ion-icon name="photos"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="primary" (click)="sendFromCamera()">
+        <ion-icon name="camera"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+  <ion-toolbar>
+    <form autocomplete="off" [formGroup]="interactionForm" (ngSubmit)="submitInteractionForm()" class="interaction-form">
+      <ion-input placeholder="Type a message" formControlName="message"></ion-input>
+      <ion-buttons slot="secondary">
+        <ion-button type="submit" [disabled]="interactionForm.invalid">
+          <ion-icon slot="icon-only" name="send"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </form>
+  </ion-toolbar>
+</ion-footer>

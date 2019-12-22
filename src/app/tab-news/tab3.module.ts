@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 
 import { Tab3Page } from './tab3.page';
 import { NewsCardComponent } from './../components/news/card/card.component';
-import { ArticleListPage } from './article-list/article-list.page';
+// import { ArticleListPage } from './article-list/article-list.page';
 import { SingleArticleComponent } from '../components/news/single-article/single-article.component';
 
 @NgModule({

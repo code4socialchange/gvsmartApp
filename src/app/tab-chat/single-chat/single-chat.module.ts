@@ -1,26 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
 import { SingleChatPage } from './single-chat.page';
-
-const routes: Routes = [
-  {
-    path: '',
-    component: SingleChatPage
-  }
-];
+import { InteractionComponent } from './../../components/chat/interaction/interaction.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule,
-    RouterModule.forChild(routes)
+    ReactiveFormsModule,
+    IonicModule
   ],
-  declarations: [SingleChatPage]
+  declarations: [
+    SingleChatPage,
+    InteractionComponent
+  ]
 })
 export class SingleChatPageModule {}

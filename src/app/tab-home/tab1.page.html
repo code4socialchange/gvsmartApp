@@ -4,7 +4,7 @@
 
   <!-- Topics List -->
 
-  <div class="home-topics ion-nowrap">
+  <!-- <div class="home-topics ion-nowrap">
     <ion-card class="ion-activatable" *ngFor="let item of [1,2,3,4,5]">
       <img src="https://picsum.photos/250">
       <ion-card-header>
@@ -12,27 +12,27 @@
       </ion-card-header>
       <ion-ripple-effect></ion-ripple-effect>
     </ion-card>  
-  </div>
+  </div> -->
 
   <div class="home-cards">
     <ion-grid>
       <ion-row>
         <ion-col size="6">
-          <ion-card class="ion-activatable">
-            <img src="https://picsum.photos/250">
-            <ion-card-subtitle>1 Update</ion-card-subtitle>
+          <ion-card class="ion-activatable" (click)="loadArticles('')">
+            <img src="./../../assets/farmer.jpg" class="box-img">
+            <!-- <ion-card-subtitle>1 Update</ion-card-subtitle> -->
             <ion-card-header>
-              <ion-card-title>Card Title</ion-card-title>
+              <ion-card-title>All Articles</ion-card-title>
             </ion-card-header>
             <ion-ripple-effect></ion-ripple-effect>
           </ion-card>
         </ion-col>
         <ion-col size="6">
-          <ion-card class="ion-activatable">
-            <img src="https://picsum.photos/250">
-            <ion-card-subtitle>1 Update</ion-card-subtitle>
+          <ion-card class="ion-activatable" (click)="loadArticles('Health')">
+            <img src="./../../assets/health.jpg" class="box-img">
+            <!-- <ion-card-subtitle>1 Update</ion-card-subtitle> -->
             <ion-card-header>
-              <ion-card-title>Card Title</ion-card-title>
+              <ion-card-title>Health</ion-card-title>
             </ion-card-header>
             <ion-ripple-effect></ion-ripple-effect>
           </ion-card>
@@ -40,18 +40,18 @@
       </ion-row>
       <ion-row> 
         <ion-col size="6">
-          <ion-card class="ion-activatable">
-            <img src="https://picsum.photos/250">
-            <ion-card-subtitle>1 Update</ion-card-subtitle>
+          <ion-card class="ion-activatable" (click)="loadArticles('News')">
+            <img src="./../../assets/agri.jpg" class="box-img">
+            <!-- <ion-card-subtitle>1 Update</ion-card-subtitle> -->
             <ion-card-header>
-              <ion-card-title>Card Title</ion-card-title>
+              <ion-card-title>News</ion-card-title>
             </ion-card-header>
             <ion-ripple-effect></ion-ripple-effect>
           </ion-card>
         </ion-col>
         <ion-col size="6">
           <ion-card class="ion-activatable">
-            <img src="https://picsum.photos/250">
+            <img src="https://picsum.photos/250" class="box-img">
             <ion-card-subtitle>1 Update</ion-card-subtitle>
             <ion-card-header>
               <ion-card-title>Card Title</ion-card-title>
@@ -63,7 +63,7 @@
     </ion-grid>
   </div>
 
-  <div class="trending-articles ion-margin-bottom">
+  <!-- <div class="trending-articles ion-margin-bottom">
 
     <h3 class="ion-padding-start">Trending Articles</h3>
 
@@ -79,6 +79,6 @@
         </ion-card>
       </ion-slide>
     </ion-slides>
-  </div>
+  </div> -->
 
 </ion-content>

@@ -2,8 +2,9 @@ news-card:host {
 
     ion-card {
         img {
-            min-height: 180px;
+            height: 160px;
             background-image: linear-gradient(68.2deg, rgb(3, 126, 243) -0.3%, rgb(48, 195, 158) 100.2%);
+            object-fit: cover;
         }
         ion-card-header {
             position: absolute;
